@@ -15,9 +15,9 @@ export const fetchAdverts = createAsyncThunk(
 
 export const fetchFilteredAdverts = createAsyncThunk(
   "adverts/fetchFilteredAdverts",
-  async ({brand, price, from, to}, { rejectWithValue }) => {
+  async ({brand, price, mileageFrom, mileageTo}, { rejectWithValue }) => {
     try {
-      const resp = await filterAdverts(brand, price, from, to);
+      const resp = await filterAdverts(brand, price, mileageFrom, mileageTo);
       return resp;
     } catch (error) {
       return rejectWithValue(error.message);

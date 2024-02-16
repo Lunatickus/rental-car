@@ -7,10 +7,9 @@ export const fetchPage = async (page) => {
   return data;
 };
 
-export const filterAdverts = async (brand, price, from, to) => {
+export const filterAdverts = async (brand, price, mileageFrom, mileageTo) => {
   const { data } = await axios.get("/adverts");
   let filteredData = [...data];
-  console.log(brand, price, from, to)
   if(brand) {
     filteredData = filteredData.filter(advert => advert.make === brand);
   }
@@ -19,8 +18,8 @@ export const filterAdverts = async (brand, price, from, to) => {
     filteredData = filteredData.filter(advert => parseInt(advert.rentalPrice.replace('$', '')) <= price);
   }
 
-  if(from !== 0 && to !== 0) {
-    filteredData = filteredData.filter(advert => advert.mileage >= from && advert.mileage <= to);
+  if(mileageFrom !== 0 && mileageTo !== 0) {
+    filteredData = filteredData.filter(advert => advert.mileage >= mileageFrom && advert.mileage <= mileageTo);
   }
 
   console.log(filteredData)

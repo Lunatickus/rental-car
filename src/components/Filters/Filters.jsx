@@ -34,8 +34,8 @@ export const Filters = () => {
       fetchFilteredAdverts({
         brand: selectedBrand,
         price: selectedPrice,
-        from: carMileageFrom,
-        to: carMileageTo,
+        mileageFrom: carMileageFrom,
+        mileageTo: carMileageTo,
       })
     );
   };
@@ -89,7 +89,7 @@ export const Filters = () => {
           {isPriceSelectorOpen ? <ArrowUp /> : <ArrowDown />}
         </p>
         {isPriceSelectorOpen && (
-          <select name="car-brand" size="9" onChange={handleChangePrice}>
+          <select name="car-brand" size="6" onChange={handleChangePrice}>
             {priceRange.map((price) => {
               return (
                 <option key={price} value={price}>
