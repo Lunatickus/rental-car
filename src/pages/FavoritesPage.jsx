@@ -1,7 +1,16 @@
+import { AdvertsList } from "components/AdvertsList/AdvertsList";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "../redux/adverts.selectors";
+
 const FavoritesPage = () => {
-    return (
+  const favorites = useSelector(selectFavorites);
+
+  return (
+    <>
       <h1>Favorites Page</h1>
-    )
-  }
-  
-  export default FavoritesPage
+      <AdvertsList adverts={favorites} />
+    </>
+  );
+};
+
+export default FavoritesPage;
