@@ -23,6 +23,16 @@ export const ModalStyled = styled.div`
     overflow: auto;
   }
 
+  .modal::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .modal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 130px;
+    background: rgba(18, 20, 23, 0.05);
+  }
+
   .modal-close-btn {
     position: absolute;
     top: 16px;
