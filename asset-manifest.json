@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/rental-car/static/css/main.6d72ce57.css",
-    "main.js": "/rental-car/static/js/main.a3f5461c.js",
+    "main.js": "/rental-car/static/js/main.b52b0b59.js",
     "static/js/170.a9dc41be.chunk.js": "/rental-car/static/js/170.a9dc41be.chunk.js",
     "static/js/91.28b5e752.chunk.js": "/rental-car/static/js/91.28b5e752.chunk.js",
     "static/js/879.dfa3bc5f.chunk.js": "/rental-car/static/js/879.dfa3bc5f.chunk.js",
     "static/js/508.73e0e812.chunk.js": "/rental-car/static/js/508.73e0e812.chunk.js",
-    "static/js/133.b119cd0f.chunk.js": "/rental-car/static/js/133.b119cd0f.chunk.js",
+    "static/js/133.e5e2c8ca.chunk.js": "/rental-car/static/js/133.e5e2c8ca.chunk.js",
     "static/media/car.jpg": "/rental-car/static/media/car.f6bf4046b6e861d9c4e2.jpg",
     "static/media/manrope-latin-700-normal.woff": "/rental-car/static/media/manrope-latin-700-normal.df11bf1babe843a247d7.woff",
     "static/media/manrope-latin-400-normal.woff": "/rental-car/static/media/manrope-latin-400-normal.82cf2a7ba70209a07253.woff",
@@ -52,15 +52,15 @@
     "index.html": "/rental-car/index.html",
     "static/media/arrow-down.svg": "/rental-car/static/media/arrow-down.2a80f82096f048d5d4b0bf81004f7e99.svg",
     "main.6d72ce57.css.map": "/rental-car/static/css/main.6d72ce57.css.map",
-    "main.a3f5461c.js.map": "/rental-car/static/js/main.a3f5461c.js.map",
+    "main.b52b0b59.js.map": "/rental-car/static/js/main.b52b0b59.js.map",
     "170.a9dc41be.chunk.js.map": "/rental-car/static/js/170.a9dc41be.chunk.js.map",
     "91.28b5e752.chunk.js.map": "/rental-car/static/js/91.28b5e752.chunk.js.map",
     "879.dfa3bc5f.chunk.js.map": "/rental-car/static/js/879.dfa3bc5f.chunk.js.map",
     "508.73e0e812.chunk.js.map": "/rental-car/static/js/508.73e0e812.chunk.js.map",
-    "133.b119cd0f.chunk.js.map": "/rental-car/static/js/133.b119cd0f.chunk.js.map"
+    "133.e5e2c8ca.chunk.js.map": "/rental-car/static/js/133.e5e2c8ca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6d72ce57.css",
-    "static/js/main.a3f5461c.js"
+    "static/js/main.b52b0b59.js"
   ]
 }
