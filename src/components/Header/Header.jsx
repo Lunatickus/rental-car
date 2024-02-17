@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom'
+import { HeaderStyled, NavLinkStyled } from "./Header.styled";
+import { ReactComponent as CarRentIcon } from "../../icons/car-rent-icon.svg";
 
 export const Header = () => {
   return (
-    <header>
-        <Link to='/'>Home</Link>
-        <Link to='catalog'>Catalog</Link>
-        <Link to='favorites'>Favorites</Link>
-    </header>
-  )
-}
+    <HeaderStyled>
+      <nav className="header-nav">
+        <NavLinkStyled to="/"><CarRentIcon width={22} /> Home</NavLinkStyled>
+        <div className="header-link-wrapper">
+          <NavLinkStyled to="catalog">Catalog</NavLinkStyled>
+          <NavLinkStyled to="favorites">Favorites</NavLinkStyled>
+        </div>
+      </nav>
+    </HeaderStyled>
+  );
+};

@@ -1,9 +1,11 @@
 import { AdvertListItem } from "components/AdvertsListItem/AdvertsListItem";
+import { AdvertListStyled } from "./AdvertsList.styled";
+
 
 export const AdvertsList = ({adverts}) => {
 
   return (
-    <ul>
+    <AdvertListStyled>
       {adverts.map((advert) => {
         return (
           <li key={advert.id}>
@@ -11,6 +13,6 @@ export const AdvertsList = ({adverts}) => {
           </li>
         );
       })}
-    </ul>
+    </AdvertListStyled>
   );
 };
