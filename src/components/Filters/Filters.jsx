@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { brands } from "services/car-brand";
 import { ReactComponent as ArrowDown } from "../../icons/arrow-down.svg";
 import { ReactComponent as ArrowUp } from "../../icons/arrow-up.svg";
@@ -6,6 +6,7 @@ import { createPriceRange } from "services/price-range";
 import { useDispatch } from "react-redux";
 import { fetchFilteredAdverts } from "../../redux/advertsOperations";
 import { FiltersFormStyled } from "./Filters.styled";
+import { useSearchParams } from "react-router-dom";
 
 export const Filters = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,28 @@ export const Filters = () => {
   const [carMileageFrom, setCarMileageFrom] = useState(0);
   const [carMileageTo, setCarMileageTo] = useState(0);
   const priceRange = createPriceRange();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const searchParamBrand = searchParams.get("brand") || "";
+    const searchParamPrice = Number(searchParams.get("price")) || 0;
+    const searchParamMileageFrom = Number(searchParams.get("mileageFrom")) || 0;
+    const searchParamMileageTo = Number(searchParams.get("mileageTo")) || 0;
+
+    setSelectedBrand(searchParamBrand);
+    setSelectedPrice(searchParamPrice);
+    setCarMileageFrom(searchParamMileageFrom);
+    setCarMileageTo(searchParamMileageTo);
+
+    dispatch(
+      fetchFilteredAdverts({
+        brand: searchParamBrand,
+        price: searchParamPrice,
+        mileageFrom: searchParamMileageFrom,
+        mileageTo: searchParamMileageTo,
+      })
+    );
+  }, [dispatch, searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,35 +54,32 @@ export const Filters = () => {
       return;
     }
 
-    dispatch(
-      fetchFilteredAdverts({
-        brand: selectedBrand,
-        price: selectedPrice,
-        mileageFrom: carMileageFrom,
-        mileageTo: carMileageTo,
-      })
-    );
+    setSearchParams({
+      brand: selectedBrand,
+      price: selectedPrice,
+      mileageFrom: carMileageFrom,
+      mileageTo: carMileageTo,
+    });
   };
 
-  const handleChangeBrand = (e) => {
-    setSelectedBrand(e.target.value);
-    setBrandIsSelectorOpen(!isBrandSelectorOpen);
-  };
-
-  const handleChangePrice = (e) => {
-    setSelectedPrice(Number(e.target.value));
-    setPriceIsSelectorOpen(!isPriceSelectorOpen);
-  };
-
-  const handleChangeCarMileage = (e) => {
-    if (e.target.name === "car-mileage-from") {
-      setCarMileageFrom(Number(e.target.value));
-      return;
-    }
-
-    if (e.target.name === "car-mileage-to") {
-      setCarMileageTo(Number(e.target.value));
-      return;
+  const handleChangeValue = (e) => {
+    switch (e.target.name) {
+      case "car-brand":
+        setSelectedBrand(e.target.value);
+        setBrandIsSelectorOpen(!isBrandSelectorOpen);
+        break;
+      case "car-price":
+        setSelectedPrice(Number(e.target.value));
+        setPriceIsSelectorOpen(!isPriceSelectorOpen);
+        break;
+      case "car-mileage-from":
+        setCarMileageFrom(Number(e.target.value));
+        break;
+      case "car-mileage-to":
+        setCarMileageTo(Number(e.target.value));
+        break;
+      default:
+        return;
     }
   };
 
@@ -80,7 +100,7 @@ export const Filters = () => {
               className="filters-form-select"
               name="car-brand"
               size="9"
-              onChange={handleChangeBrand}
+              onChange={handleChangeValue}
             >
               {brands.map((brand) => {
                 return (
@@ -112,7 +132,7 @@ export const Filters = () => {
               className="filters-form-select price-select"
               name="car-price"
               size="6"
-              onChange={handleChangePrice}
+              onChange={handleChangeValue}
             >
               {priceRange.map((price) => {
                 return (
@@ -139,7 +159,7 @@ export const Filters = () => {
               type="number"
               name="car-mileage-from"
               value={carMileageFrom === 0 ? "" : carMileageFrom}
-              onChange={handleChangeCarMileage}
+              onChange={handleChangeValue}
             />
           </label>
           <label className="filters-form-text mileage-text to">
@@ -149,7 +169,7 @@ export const Filters = () => {
               type="number"
               name="car-mileage-to"
               value={carMileageTo === 0 ? "" : carMileageTo}
-              onChange={handleChangeCarMileage}
+              onChange={handleChangeValue}
             />
           </label>
         </div>
