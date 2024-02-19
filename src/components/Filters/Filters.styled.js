@@ -8,6 +8,7 @@ export const FiltersFormStyled = styled.form`
   margin-bottom: 50px;
 
   .filters-form-label {
+    display: block;
     color: rgb(138, 138, 137);
     font-size: 14px;
     font-weight: 500;
@@ -35,6 +36,7 @@ export const FiltersFormStyled = styled.form`
 
   .filters-form-text-wrapper {
     position: relative;
+    display: block;
   }
 
   .filters-form-select {

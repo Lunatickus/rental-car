@@ -86,15 +86,15 @@ export const Filters = () => {
   return (
     <FiltersFormStyled onSubmit={handleSubmit}>
       <label>
-        <p className="filters-form-label">Car Brand</p>
-        <div className="filters-form-text-wrapper">
-          <div
+        <span className="filters-form-label">Car Brand</span>
+        <span className="filters-form-text-wrapper">
+          <span
             className="filters-form-text"
             onClick={() => setBrandIsSelectorOpen(!isBrandSelectorOpen)}
           >
-            <p>{selectedBrand || "Enter the text"}</p>
+            <span>{selectedBrand || "Enter the text"}</span>
             {isBrandSelectorOpen ? <ArrowUp /> : <ArrowDown />}
-          </div>
+          </span>
           {isBrandSelectorOpen && (
             <select
               className="filters-form-select"
@@ -115,18 +115,18 @@ export const Filters = () => {
               })}
             </select>
           )}
-        </div>
+        </span>
       </label>
       <label>
-        <p className="filters-form-label">Price/ 1 hour</p>
-        <div className="filters-form-text-wrapper">
-          <div
+        <span className="filters-form-label">Price/ 1 hour</span>
+        <span className="filters-form-text-wrapper">
+          <span
             className="filters-form-text price-text"
             onClick={() => setPriceIsSelectorOpen(!isPriceSelectorOpen)}
           >
-            <p>{selectedPrice || "To"} $</p>
+            <span>{selectedPrice || "To"} $</span>
             {isPriceSelectorOpen ? <ArrowUp /> : <ArrowDown />}
-          </div>
+          </span>
           {isPriceSelectorOpen && (
             <select
               className="filters-form-select price-select"
@@ -147,13 +147,13 @@ export const Filters = () => {
               })}
             </select>
           )}
-        </div>
+        </span>
       </label>
       <div>
-        <p className="filters-form-label">Сar mileage / km</p>
+        <span className="filters-form-label">Сar mileage / km</span>
         <div className="filter-form-mileage-wrapper">
           <label className="filters-form-text mileage-text from">
-            <p>From</p>
+            <span>From</span>
             <input
               className="filters-form-input"
               type="number"
@@ -163,7 +163,7 @@ export const Filters = () => {
             />
           </label>
           <label className="filters-form-text mileage-text to">
-            <p>To</p>
+            <span>To</span>
             <input
               className="filters-form-input"
               type="number"
