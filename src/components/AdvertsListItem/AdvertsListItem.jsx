@@ -6,7 +6,6 @@ import { Modal } from "components/Modal/Modal";
 import { ReactComponent as UnpaintedHeart } from "../../icons/unpainted-heart.svg";
 import { ReactComponent as PainedHeart } from "../../icons/painted-heart.svg";
 import {
-  AdvertItemImageStyled,
   AdvertsItemStyled,
 } from "./AdvertsListItem.styled";
 
@@ -60,7 +59,8 @@ export const AdvertListItem = ({ item }) => {
         >
           {isFavorite(item.id) ? <PainedHeart /> : <UnpaintedHeart />}
         </button>
-        <AdvertItemImageStyled $backgroundImage={img}></AdvertItemImageStyled>
+        {/* <AdvertItemImageStyled $backgroundImage={img}></AdvertItemImageStyled> */}
+        <img className="adverts-item-img" src={img} alt="car" />
         <div className="advert-item-text-wrapper">
           <p className="advert-item-text">
             {make} <span className="advert-item-text-model">{model}</span>,{" "}

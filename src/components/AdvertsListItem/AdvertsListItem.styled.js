@@ -83,15 +83,11 @@ export const AdvertsItemStyled = styled.div`
   .advert-item-btn:hover {
     background-color: rgb(11, 68, 205);
   }
-`;
 
-export const AdvertItemImageStyled = styled.div`
-  width: 274px;
+  .adverts-item-img {
+    width: 274px;
   height: 268px;
   border-radius: 14px;
   margin-bottom: 14px;
-  background-image: url(${(props) => props.$backgroundImage});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  }
 `;
