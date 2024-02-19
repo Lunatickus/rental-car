@@ -18,7 +18,7 @@ export const ModalStyled = styled.div`
     border-radius: 24px;
     padding: 40px;
     background-color: rgb(255, 255, 255);
-    height: 90%;
+    height: 72%;
     width: 460px;
     overflow: auto;
   }
